@@ -7,7 +7,7 @@ from db import ChatHistory
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 from flask_migrate import Migrate
-
+import os
 
 # Initialize app and extensions
 app = Flask(__name__)
@@ -142,4 +142,4 @@ def handle_send_message(data):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()  # Create tables at startup
-    socketio.run(app, debug=True)
+    socketio.run(app, host='0.0.0.0', debug=True)
